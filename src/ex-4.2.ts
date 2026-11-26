@@ -1,8 +1,13 @@
-function processData(data: unknown): string {
-  return data.toUpperCase();
+function processData(data: string | number): string {
+  
+  if (typeof data === "string") {
+    return data.toUpperCase();
+  }else {
+    return "Not a string"
+  }
 }
 
 console.log(processData("hello")); // ควรได้ "HELLO"
 console.log(processData(123)); // ควรได้ "Not a string"
 
-// Error ที่เจอคือ
+// Error ที่เจอคือ data.toUpperCase is not a function
